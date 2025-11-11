@@ -37,9 +37,9 @@ dependencies {
     
     // Seu mod usa a biblioteca "configbuilder", então precisamos declará-la aqui
     // O 'implementation' a torna disponível para compilação
-    implementation "de.maxhenkel.configbuilder:configbuilder:6.0.0"
+    implementation "de.maxhenkel.configbuilder:configbuilder:2.1.0"
     // O 'include' abaixo diz ao Loom para empacotar esta biblioteca dentro do seu mod
-    include "de.maxhenkel.configbuilder:configbuilder:6.0.0"
+    include "de.maxhenkel.configbuilder:configbuilder:2.1.0"
 }
 
 // Este bloco processa o fabric.mod.json, substituindo as variáveis. Ele está correto e foi mantido.
