@@ -3,11 +3,12 @@ package de.maxhenkel.camerautils.gui;
 import de.maxhenkel.camerautils.CameraUtils;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Identifier; // CORREÇÃO
 
 public class ZoomAnimationScreen extends SettingsScreenBase {
 
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(CameraUtils.MODID, "textures/gui/generic_4.png");
+    // CORREÇÃO
+    private static final Identifier TEXTURE = Identifier.of(CameraUtils.MODID, "textures/gui/generic_4.png");
 
     public ZoomAnimationScreen() {
         super(Component.translatable("gui.camerautils.zoom_animation.title"), TEXTURE, 248, 129);
@@ -47,5 +48,4 @@ public class ZoomAnimationScreen extends SettingsScreenBase {
             minecraft.setScreen(new ZoomAnimationScreen());
         }).bounds(guiLeft + 10, guiTop + 7 + font.lineHeight + 10 + 25 * 3, xSize - 20, 20).build());
     }
-
 }

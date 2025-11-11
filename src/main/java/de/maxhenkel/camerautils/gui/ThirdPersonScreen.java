@@ -4,11 +4,12 @@ import de.maxhenkel.camerautils.CameraUtils;
 import de.maxhenkel.camerautils.Utils;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Identifier; // CORREÇÃO
 
 public class ThirdPersonScreen extends SettingsScreenBase {
 
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(CameraUtils.MODID, "textures/gui/generic_3.png");
+    // CORREÇÃO
+    private static final Identifier TEXTURE = Identifier.of(CameraUtils.MODID, "textures/gui/generic_3.png");
 
     public ThirdPersonScreen() {
         super(Component.translatable("gui.camerautils.third_person_offset.title"), TEXTURE, 248, 104);
@@ -40,5 +41,4 @@ public class ThirdPersonScreen extends SettingsScreenBase {
             minecraft.setScreen(new ThirdPersonScreen());
         }).bounds(guiLeft + 10, guiTop + 7 + font.lineHeight + 10 + 25 * 2, xSize - 20, 20).build());
     }
-
 }

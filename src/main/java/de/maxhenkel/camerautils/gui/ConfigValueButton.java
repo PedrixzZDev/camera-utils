@@ -1,9 +1,9 @@
 package de.maxhenkel.camerautils.gui;
 
 import de.maxhenkel.configbuilder.entry.ConfigEntry;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
-import net.minecraft.client.input.InputWithModifiers;
 import net.minecraft.network.chat.Component;
 
 import java.util.function.Function;
@@ -24,8 +24,9 @@ public class ConfigValueButton extends AbstractButton {
         setMessage(component.apply(entry.get()));
     }
 
+    // CORREÇÃO: Assinatura do método onPress() foi simplificada
     @Override
-    public void onPress(InputWithModifiers inputWithModifiers) {
+    public void onPress() {
         entry.set(!entry.get()).save();
         updateText();
     }
@@ -33,5 +34,11 @@ public class ConfigValueButton extends AbstractButton {
     @Override
     protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
         defaultButtonNarrationText(narrationElementOutput);
+    }
+    
+    // CORREÇÃO: Adicionado método obrigatório renderContents
+    @Override
+    protected void renderContents(GuiGraphics guiGraphics, int i, int j, float f) {
+        // O texto já é renderizado pela classe pai, então este método pode ficar vazio
     }
 }

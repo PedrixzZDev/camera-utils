@@ -3,11 +3,12 @@ package de.maxhenkel.camerautils.gui;
 import de.maxhenkel.camerautils.CameraUtils;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Identifier; // CORREÇÃO
 
 public class CinematicCameraScreen extends SettingsScreenBase {
 
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(CameraUtils.MODID, "textures/gui/generic_2.png");
+    // CORREÇÃO
+    private static final Identifier TEXTURE = Identifier.of(CameraUtils.MODID, "textures/gui/generic_2.png");
 
     public CinematicCameraScreen() {
         super(Component.translatable("gui.camerautils.cinematic_camera.title"), TEXTURE, 248, 79);
@@ -30,5 +31,4 @@ public class CinematicCameraScreen extends SettingsScreenBase {
             minecraft.setScreen(new CinematicCameraScreen());
         }).bounds(guiLeft + 10, guiTop + 7 + font.lineHeight + 10 + 25, xSize - 20, 20).build());
     }
-
 }
